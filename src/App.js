@@ -138,8 +138,8 @@ function App() {
     setSaveStatus("");
 
     try {
-      const res = await axios.post("https://mernai-backend.vercel.app/api/ask-ai", {
-        prompt: prompt,
+         const res = await axios.post(`${process.env.base_url}/api/ask-ai`, {
+        prompt,
       });
 
       setResponse(res.data.response);
@@ -160,10 +160,10 @@ function App() {
 
     setSaveStatus("Saving...");
 
-    try {
-      await axios.post("https://mernai-backend.vercel.app/api/save-flow", {
-        prompt: prompt,
-        response: response,
+      try {
+      await axios.post(`${process.env.base_url}/api/save-flow`, {
+        prompt,
+        response,
       });
 
       setSaveStatus("✅ Saved successfully!");
