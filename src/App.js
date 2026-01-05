@@ -11,6 +11,8 @@ import "reactflow/dist/style.css";
 import axios from "axios";
 import "./App.css";
 
+const API_BASE = process.env.REACT_APP_API_URL;
+
 // Custom Node Components
 const InputNode = ({ data }) => {
   return (
@@ -138,7 +140,7 @@ function App() {
     setSaveStatus("");
 
     try {
-         const res = await axios.post(`${process.env.base_url}/api/ask-ai`, {
+         const res = await axios.post(`${API_BASE}/api/ask-ai`, {
         prompt,
       });
 
@@ -161,7 +163,7 @@ function App() {
     setSaveStatus("Saving...");
 
       try {
-      await axios.post(`${process.env.base_url}/api/save-flow`, {
+      await axios.post(`${API_BASE}/api/save-flow`, {
         prompt,
         response,
       });
