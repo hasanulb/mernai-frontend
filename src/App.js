@@ -13,7 +13,7 @@ import "./App.css";
 
 const API_BASE = process.env.REACT_APP_API_URL;
 
-// Custom Node Components
+
 const InputNode = ({ data }) => {
   return (
     <div className="custom-node input-node">
@@ -47,7 +47,7 @@ const ResultNode = ({ data }) => {
   );
 };
 
-// Register custom node types
+
 const nodeTypes = {
   inputNode: InputNode,
   resultNode: ResultNode,
@@ -59,7 +59,7 @@ function App() {
   const [loading, setLoading] = useState(false);
   const [saveStatus, setSaveStatus] = useState("");
 
-  // Initial nodes setup
+
   const initialNodes = [
     {
       id: "1",
@@ -81,7 +81,7 @@ function App() {
     },
   ];
 
-  // Initial edges (connections)
+
   const initialEdges = [
     {
       id: "e1-2",
@@ -100,7 +100,7 @@ function App() {
     [setEdges]
   );
 
-  // Update nodes when prompt or response changes
+ 
   React.useEffect(() => {
     setNodes((nds) =>
       nds.map((node) => {
@@ -128,7 +128,7 @@ function App() {
     );
   }, [prompt, response, loading, setNodes]);
 
-  // Run Flow - Send prompt to backend
+
   const handleRunFlow = async () => {
     if (!prompt.trim()) {
       alert("Please enter a prompt first!");
@@ -153,7 +153,7 @@ function App() {
     }
   };
 
-  // Save Flow - Save to MongoDB
+
   const handleSaveFlow = async () => {
     if (!prompt.trim() || !response.trim()) {
       alert("Please run the flow first before saving!");
@@ -221,7 +221,7 @@ function App() {
       </div>
 
       <footer className="App-footer">
-        <p>Built with MERN Stack + React Flow + OpenRouter AI</p>
+        <p>Built with MERN Stack + React Flow + OpenRouter AI - Hasanul Banna</p>
       </footer>
     </div>
   );
